@@ -19,8 +19,12 @@ class Utilities {
         await this.browser.$(`${selector}`).setValue(`${value}`)
     }
     async enterUrl(openurl) {
+
+        await this.browserInitialisation()
         await this.browser.url(`${openurl}`)
         await this.browser.maximizeWindow()
+     
+
     }
     async time(value) {
         await this.browser.pause(value)
@@ -29,5 +33,6 @@ class Utilities {
         await this.time(wait)
         await this.browser.$(`${selector}`).click()
     }
+    
 }
 module.exports = {Utilities}
