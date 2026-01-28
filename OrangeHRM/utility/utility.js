@@ -29,42 +29,63 @@ class Utilities {
  
     async enterUrl(openurl) {
         const browser = await this.getBrowser()
-        await browser.url(openurl)
-        await browser.maximizeWindow()
+        await browser.url(openurl);
+        await browser.maximizeWindow();
     }
  
     async enterText(selector, value) {
         const browser = await this.getBrowser()
-        await this.cleartext()
-        await browser.$(selector).setValue(value)
-        
-        
+        const element = await browser.$(selector)
+        await element.waitForDisplayed()
+        await element.scrollIntoView({ block: 'center' })
+        await this.clearText(selector)
+        await element.click()
+        await element.setValue(value)
     }
-    async cleartext(){
+ 
+ 
+    async clearText(selector) {
         const browser = await this.getBrowser();
-        
-        await browser.action('key')
-                .down(Key.Ctrl).down('A')
-                .pause(10)
-                .up(Key.Ctrl).up('A')
-                .pause(10)
-                .down(Key.Delete).up(Key.Delete)
-                .perform()
-            await browser.pause(2000);
-        
+        const element = await browser.$(selector);
+        await element.waitForDisplayed();
+        await element.click();
+        await browser.keys(['Control', 'a']);
+        await browser.keys('Delete');
     }
  
     async click(selector) {
         const browser = await this.getBrowser()
-        await browser.$(selector).click()
+        const element = await browser.$(selector)
+        await element.waitForDisplayed()
+        await element.scrollIntoView({ block: 'center' })
+        await element.waitForClickable()
+        await element.click()
     }
  
     async time(value) {
-        const browser = await this.getBrowser()
+        const browser = await this.getBrowser();
         if (value > 0) {
-            await browser.pause(value)
+            await browser.pause(value);
         }
     }
+ 
+    async selectdropdownValue(value) {
+        const browser = await this.getBrowser()
+ 
+        const dropdown = await browser.$('//div[contains(@class,"oxd-select-text-input") and @tabindex="0"]')
+        await dropdown.waitForDisplayed()
+        await dropdown.scrollIntoView({ block: 'center' })
+        await dropdown.waitForClickable()
+        await dropdown.click()
+ 
+        const option = await browser.$(`//div[@role="option" and normalize-space()="${value}"]`)
+        await option.waitForDisplayed()
+        await option.scrollIntoView({ block: 'center' })
+        await option.waitForClickable()
+        await option.click()
+    }
+ 
+ 
  
     async closeBrowser() {
         if (Utilities.browser) {
@@ -76,3 +97,4 @@ class Utilities {
 }
  
 module.exports = { Utilities }
+ 
