@@ -1,4 +1,4 @@
-//const { contactdetail } = require("../page/contactdetails");
+const { contactdetail } = require("../page/contactdetails");
 const { Loginpage } = require("../page/login");
 const { logout } = require("../page/logout");
 const { Myinfo } = require("../page/myinfo");
@@ -12,9 +12,20 @@ async function testlogin() {
 async function personaldetails() {
       await myinf.clickmyinfo()
       await myinf.clickpersonal()
+      await myinf.EmployeeFullName()
+      await myinf.EmployeeMiddleName()
+      await myinf.EmployeeLastName()
+      await myinf.EmployeeId()
+      await myinf.OtherId()
+      await myinf.Nationality()
+      await myinf.MaritalStatus()
+      await myinf.DateofBirth()
+      await myinf.Gender()
+      await myinf.Requiredsave()
+
 }
- async function contactde(){
-      await contact.contactdetailsfield() 
+async function contactde() {
+      await contact.clickoncontactdetail()
       await contact.street1()
       await contact.street2()
       await contact.city()
@@ -28,10 +39,20 @@ async function personaldetails() {
       await contact.otheremail()
 }
 async function Logout() {
-      await logo.logout
-      
+      await logo.logout()
+
 }
-testlogin()
-personaldetails()
-contactde()
-Logout()
+async function runtest() {
+      await testlogin()
+      await personaldetails()
+}
+async function runtest1() {
+      await testlogin()
+      await contactde()
+
+}
+async function runtest3(){
+      await testlogin()
+      await Logout()
+}
+runtest()

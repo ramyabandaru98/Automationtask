@@ -1,48 +1,60 @@
 const { remote } = require('webdriverio')
+ 
 class Utilities {
-    Utilities() {
-        this.browser = null
+ 
+    static browser = null
+    static initializing = null
+ 
+    async getBrowser() {
+        if (Utilities.browser) {
+            return Utilities.browser
+        }
+        if (!Utilities.initializing) {
+            Utilities.initializing = (async () => {
+                Utilities.browser = await remote({
+                    automationProtocol: 'webdriver',
+                    logLevel: 'info',
+                    capabilities: {
+                        browserName: 'chrome'
+                    }
+                })
+                return Utilities.browser
+            })()
+        }
+ 
+        return Utilities.initializing
     }
-    async browserInitialisation() {
-        this.browser = await remote({
-            automationProtocol: 'webdriver',
-            logLevel: 'info',
-            capabilities: {
-                browserName: 'chrome'
-
-            }
-        })
-
-    }
-    async enterText(selector, value) {
-        // await this.time(wait)
-        await this.browser.$(`${selector}`).setValue(`${value}`)
-    }
+ 
     async enterUrl(openurl) {
-
-        await this.browserInitialisation()
-        await this.browser.url(`${openurl}`)
-        await this.browser.maximizeWindow()
-
-
+        const browser = await this.getBrowser()
+        await browser.url(openurl)
+        await browser.maximizeWindow()
     }
+ 
+    async enterText(selector, value) {
+        const browser = await this.getBrowser()
+        await browser.$(selector).setValue(value)
+    }
+ 
+    async click(selector) {
+        const browser = await this.getBrowser()
+        await browser.$(selector).click()
+    }
+ 
     async time(value) {
+        const browser = await this.getBrowser()
         if (value > 0) {
-            await this.browser.pause(value)
+            await browser.pause(value)
         }
     }
-    async click(selector) {
-        // await this.time(wait)
-        await this.browser.$(`${selector}`).click()
+ 
+    async closeBrowser() {
+        if (Utilities.browser) {
+            await Utilities.browser.deleteSession()
+            Utilities.browser = null
+            Utilities.initializing = null
+        }
     }
-
 }
+ 
 module.exports = { Utilities }
-
-
-
-
-
-
-
-
