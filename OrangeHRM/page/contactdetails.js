@@ -17,40 +17,40 @@ class contactdetail{
 
     async clickoncontactdetail(){
 
-       await utilite.click(contactdetailsfield, 2000)
+       await utilite.click(contactdetailsfield)
        await utilite.time(3000)
 
     }
     async stret1(){
-        await utilite.enterText(street1, value,wait)
+        await utilite.enterText(street1, "Sriram Residency")
     }
     async stret2(){
-        await utilite.enterText(street2, value,wait)
+        await utilite.enterText(street2, "maktha")
     }
     async city(){
-        await utilite.enterText(cityp, value,wait)
+        await utilite.enterText(cityp, "VIZIANAGARAM")
     }
     async state(){
-        await utilite.enterText(statee, value,wait)
+        await utilite.enterText(statee, value)
     }
     async zip(){
-        await utilite.enterText(zipp, value,wait)
+        await utilite.enterText(zipp, value)
     }
     async countryy(){
-        await utilite.enterText(country, value,wait)
+        await utilite.enterText(country, value)
     }
     async home(){
-        await utilite.enterText(homephn, value,wait)
+        await utilite.enterText(homephn, value)
     }
     async mobile(){
-        await utilite.enterText(mobilephn, value,wait)
+        await utilite.enterText(mobilephn, value)
     }
     async work(){
-        await utilite.enterText(workk, value,wait)
+        await utilite.enterText(workk, value)
     }async workemail(){
-        await utilite.enterText(workkemail, value,wait)
+        await utilite.enterText(workkemail, value)
     }async otheremail(){
-        await utilite.enterText(otheremailadd, value,wait)
+        await utilite.enterText(otheremailadd, value)
 
     }
     async save(){

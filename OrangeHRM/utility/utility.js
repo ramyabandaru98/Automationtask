@@ -1,4 +1,6 @@
 const { remote } = require('webdriverio')
+const { Key } = require('webdriverio')
+ 
  
 class Utilities {
  
@@ -13,7 +15,7 @@ class Utilities {
             Utilities.initializing = (async () => {
                 Utilities.browser = await remote({
                     automationProtocol: 'webdriver',
-                    logLevel: 'info',
+                    logLevel: 'silent',
                     capabilities: {
                         browserName: 'chrome'
                     }
@@ -33,7 +35,23 @@ class Utilities {
  
     async enterText(selector, value) {
         const browser = await this.getBrowser()
+        await this.cleartext()
         await browser.$(selector).setValue(value)
+        
+        
+    }
+    async cleartext(){
+        const browser = await this.getBrowser();
+        
+        await browser.action('key')
+                .down(Key.Ctrl).down('A')
+                .pause(10)
+                .up(Key.Ctrl).up('A')
+                .pause(10)
+                .down(Key.Delete).up(Key.Delete)
+                .perform()
+            await browser.pause(2000);
+        
     }
  
     async click(selector) {

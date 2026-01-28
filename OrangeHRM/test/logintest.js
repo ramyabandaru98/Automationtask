@@ -17,11 +17,12 @@ async function personaldetails() {
       await myinf.EmployeeLastName()
       await myinf.EmployeeId()
       await myinf.OtherId()
-      await myinf.Nationality()
-      await myinf.MaritalStatus()
-      await myinf.DateofBirth()
-      await myinf.Gender()
-      await myinf.Requiredsave()
+      // await myinf.DriverLiceneNunmber()
+     // await myinf.Nationality()
+      // await myinf.MaritalStatus()
+      // await myinf.DateofBirth()
+      // await myinf.Gender()
+      // await myinf.Requiredsave()
 
 }
 async function contactde() {
