@@ -7,11 +7,12 @@ class Myinfo{
 
     async clickmyinfo(){
 
-        await utilite.click(infolink,2000)
+        await utilite.click(infolink)
         
     }
     async clickpersonal(){
-        await utilite.click(personallink,2000)
+       
+        await utilite.click(personallink)
     }
 }
 module.exports = { Myinfo }

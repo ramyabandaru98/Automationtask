@@ -1,4 +1,4 @@
-const {remote} = require ('webdriverio')
+const { remote } = require('webdriverio')
 class Utilities {
     Utilities() {
         this.browser = null
@@ -12,10 +12,10 @@ class Utilities {
 
             }
         })
-       
+
     }
-    async enterText(selector, value,wait) {
-        await this.time(wait)
+    async enterText(selector, value) {
+        // await this.time(wait)
         await this.browser.$(`${selector}`).setValue(`${value}`)
     }
     async enterUrl(openurl) {
@@ -23,16 +23,26 @@ class Utilities {
         await this.browserInitialisation()
         await this.browser.url(`${openurl}`)
         await this.browser.maximizeWindow()
-     
+
 
     }
     async time(value) {
-        await this.browser.pause(value)
+        if (value > 0) {
+            await this.browser.pause(value)
+        }
     }
-    async click(selector,wait) {
-        await this.time(wait)
+    async click(selector) {
+        // await this.time(wait)
         await this.browser.$(`${selector}`).click()
     }
-    
+
 }
-module.exports = {Utilities}
+module.exports = { Utilities }
+
+
+
+
+
+
+
+
