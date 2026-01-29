@@ -14,7 +14,7 @@ class Myinfo {
     async clickmyinfo() {
 
         await utilite.click(infolink)
-        await utilite.time(6000)
+        await utilite.time(100000)
 
     }
     async clickpersonal() {

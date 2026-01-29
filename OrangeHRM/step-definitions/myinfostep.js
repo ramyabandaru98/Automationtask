@@ -1,7 +1,7 @@
 const { Given, When, Then } = require('@wdio/cucumber-framework')
 const { Myinfo } = require('../page/myinfo')
 
-const myinfo=new Myinfo
+const myinfo=new Myinfo()
 
 Given('I click on my infolink', async()=>{
      await myinfo.clickmyinfo()
@@ -26,10 +26,10 @@ Then('I enter Otherid', async()=>{
      await myinfo.OtherId()
 })
 Then('I enter Nationality', async()=>{
-    await myinfo.Nationality()
+    await myinfo.Nationality("Indian")
 })
 Then('I enter Martialstatus', async()=>{
-    await myinfo.MaritalStatus()
+    await myinfo.MaritalStatus("Single")
 })
 Then('I click on savebutton', async()=>{
     await myinfo.Requiredsave()
