@@ -14,18 +14,14 @@ class passwordchange{
      async clickdropdown(){
 
         await utilite.click(dropdownclick, 2000)
-        await utilite.time(3000)
-    }
-    async clickpasswordchnge(){
-        await utilite.click(changpassword, 2000)
-        await utilite.time(3000)
-
+        await utilite.time(5000)
     }
     async entercurrentpassword(){
         await utilite.enterText(currentpassword,cred.password)
     }
-    async enternewpassword(){
+    async enterpasswordchnge(){
         await utilite.enterText(newpassword,cred.Newpassword)
+
     }
     async confirnewmpassword(){
         await utilite.enterText(confirmpassword,cred.ConfirmNewpassword)

@@ -10,14 +10,26 @@ const submit = '//button[@type="submit"]'
 
  class Loginpage {
 
-    async login() {
+    async openUrl() {
         await utilite.enterUrl(cred.url)
-        await utilite.time(2000)
-        await utilite.enterText(username, cred.username)
-        await utilite.enterText(password, cred.password)
-        await utilite.click(submit)
-
+        await utilite.time(6000)
     }
+ 
+    async enterusername() {
+         await utilite.enterText(username, cred.username)
+       // await utilite.enterText(username, value)
+    }
+ 
+    async enterpassword() {
+         await utilite.enterText(password, cred.password)
+        //await utilite.enterText(password, value)
+    }
+ 
+    async clickloginbutton(){
+         await utilite.click(submit)
+         await utilite.time(5000)
+    }
+ 
 
 }
 module.exports = { Loginpage }
