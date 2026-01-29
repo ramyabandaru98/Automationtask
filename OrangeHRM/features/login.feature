@@ -26,7 +26,8 @@ Feature: Login Page
         Then I enter the username
         Then I enter the password
         Then I click on login button
-        Given  I click on changepassword
+        Then I click on dropdown
+        Then I click on changepassword
         Then I enter the currentpassword
         Then I enter the Newpassword
         When I enter the ConfirmNewpassword

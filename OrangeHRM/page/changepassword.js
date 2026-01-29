@@ -11,9 +11,9 @@ const savebutton="//p[text()=' * Required']/../button[@type='submit']"
 const utilite = new Utilities()
 
 class passwordchange{
-     async clickdropdown(){
+     async changpassword(){
 
-        await utilite.click(dropdownclick, 2000)
+        await utilite.click(changpassword, 2000)
         await utilite.time(5000)
     }
     async entercurrentpassword(){
@@ -26,7 +26,7 @@ class passwordchange{
     async confirnewmpassword(){
         await utilite.enterText(confirmpassword,cred.ConfirmNewpassword)
     }
-    async savebutt(){
+    async savebutton(){
         await utilite.click(savebutton)
     }
 }

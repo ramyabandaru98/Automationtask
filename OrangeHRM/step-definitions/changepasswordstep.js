@@ -3,8 +3,8 @@ const { passwordchange } = require('../page/changepassword')
 
 const changepassword= new passwordchange()
 
-Given('I click on changepassword', async ()=>{
-        await changepassword.clickdropdown()
+Then('I click on changepassword', async ()=>{
+        await changepassword.changpassword()
 })
 
 Then('I enter the currentpassword', async ()=>{
@@ -20,7 +20,7 @@ When('I enter the ConfirmNewpassword', async ()=>{
     await changepassword.confirnewmpassword()
 })
 Then('I click on save', async ()=>{
-    await changepassword.savebutt()
+    await changepassword.savebutton()
 
 })
 
