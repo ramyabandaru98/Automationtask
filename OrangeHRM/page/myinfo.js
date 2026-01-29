@@ -14,30 +14,30 @@ class Myinfo {
     async clickmyinfo() {
 
         await utilite.click(infolink)
-        await utilite.time(100000)
+        await utilite.time(30000)
 
     }
     async clickpersonal() {
 
         await utilite.click(personallink)
-        await utilite.time(6000)
+        await utilite.time(30000)
 
     }
     async EmployeeFullName() {
-        await utilite.enterText(EmployeeName, "John")
+        await utilite.enterText(EmployeeName,value)
 
     }
     async EmployeeMiddleName() {
-        await utilite.enterText(middlename, "Holder")
+        await utilite.enterText(middlename,value)
     }
     async EmployeeLastName() {
-        await utilite.enterText(lastname, "James")
+        await utilite.enterText(lastname,value)
     }
     async EmployeeId() {
-        await utilite.enterText(EmployeId, "2211580")
+        await utilite.enterText(EmployeId,value)
     }
     async OtherId() {
-        await utilite.enterText(OthrId, "4957589")
+        await utilite.enterText(OthrId,value)
     }
 
     async Nationality(value) {
