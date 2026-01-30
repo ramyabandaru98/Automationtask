@@ -3,7 +3,7 @@ const { Utilities } = require("../utility/utility")
 const infolink = '//span[text()="My Info"]'
 const personallink= "//a[text()='Personal Details']"
 const test= "//label[text()='Test_Field']/../following-sibling::div/input"
-//const save='/html/body/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button'
+const savebutton='/html/body/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button'
 const utilite= new Utilities()
 
 
@@ -32,10 +32,14 @@ class CustomField{
         await option.waitForClickable()
         await option.click()
     }
-    async test(){
-        await utilite.enterText(test,"blood")
+    async test(value){
+        await utilite.enterText(test,value)
     }
-    //async 
+    async savebutton(){
+        await utilite.time(3000)
+        await utilite.click(savebutton)
+        
+    }
 }
 
 module.exports={CustomField}

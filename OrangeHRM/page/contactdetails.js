@@ -3,15 +3,15 @@ const infolink = '//span[text()="My Info"]'
 const contactdetailsfield="//a[text()='Contact Details']"
 const street1="//label[text()='Street 1']/parent::div/following-sibling::div/input"
 const street2="//label[text()='Street 2']/parent::div/following-sibling::div/input"
-const cityp="//label[text()='City']/../following-sibling::div/input"
-const statee="//label[text()='State/Province']/../following-sibling::div/input"
-const zipp="//label[text()='Zip/Postal Code']/../following-sibling::div/input"
-const homephn="//label[text()='Home']/../following-sibling::div/input"
-const mobilephn="//label[text()='Mobile']/../following-sibling::div/input"
+const cityname="//label[text()='City']/../following-sibling::div/input"
+const statename="//label[text()='State/Province']/../following-sibling::div/input"
+const zipcode="//label[text()='Zip/Postal Code']/../following-sibling::div/input"
+const homephonenumber="//label[text()='Home']/../following-sibling::div/input"
+const mobilephonenumber="//label[text()='Mobile']/../following-sibling::div/input"
 const workk="//label[text()='Work']/../following-sibling::div/input"
 const workkemail="//label[text()='Work Email']/../following-sibling::div/input"
 const otheremailadd="//label[text()='Other Email']/../following-sibling::div/input"
-const saveb="//p[text()=' * Required']/../button[@type='submit']"
+const savebutton="//p[text()=' * Required']/../button[@type='submit']"
 const utilite= new Utilities()
 class contactdetail{
      async clickmyinfo() {
@@ -27,20 +27,20 @@ class contactdetail{
        await utilite.time(5000)
 
     }
-    async st1(){
-        await utilite.enterText(street1, "Sriram Residency")
+    async st1(value){
+        await utilite.enterText(street1, value)
     }
-    async st2(){
-        await utilite.enterText(street2, "maktha")
+    async st2(value){
+        await utilite.enterText(street2, value)
     }
-    async city(){
-        await utilite.enterText(cityp, "VIZIANAGARAM")
+    async city(value){
+        await utilite.enterText(cityname, value)
     }
-    async state(){
-        await utilite.enterText(statee, "AndhraPradesh")
+    async state(value){
+        await utilite.enterText(statename, value)
     }
-    async zip(){
-        await utilite.enterText(zipp, "535004")
+    async zip(value){
+        await utilite.enterText(zipcode, value)
     }
     async country(value) {
         const browser = await utilite.getBrowser()
@@ -56,22 +56,23 @@ class contactdetail{
         await option.waitForClickable()
         await option.click()
     }
-    async home(){
-        await utilite.enterText(homephn, "8791234671")
+    async home(value){
+        await utilite.enterText(homephonenumber, value)
     }
-    async mobile(){
-        await utilite.enterText(mobilephn, "8790699789")
+    async mobile(value){
+        await utilite.enterText(mobilephonenumber, value)
     }
-    async work(){
-        await utilite.enterText(workk, "112-898-7612")
-    }async workemail(){
-        await utilite.enterText(workkemail, "ram1@example.com")
-    }async otheremail(){
-        await utilite.enterText(otheremailadd, "ram@example.com")
+    async work(value){
+        await utilite.enterText(workk, value)
+    }async workemail(value){
+        await utilite.enterText(workkemail, value)
+    }async otheremail(value){
+        await utilite.enterText(otheremailadd, value)
 
     }
     async save(){
-         await utilite.click(saveb, 2000)
+         await utilite.click(savebutton)
+         await utilite.time(3000)
 
     }
 }

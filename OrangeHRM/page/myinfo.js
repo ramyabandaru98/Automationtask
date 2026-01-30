@@ -23,20 +23,20 @@ class Myinfo {
         await utilite.time(30000)
 
     }
-    async EmployeeFullName() {
+    async EmployeeFullName(value) {
         await utilite.enterText(EmployeeName,value)
 
     }
-    async EmployeeMiddleName() {
+    async EmployeeMiddleName(value) {
         await utilite.enterText(middlename,value)
     }
-    async EmployeeLastName() {
+    async EmployeeLastName(value) {
         await utilite.enterText(lastname,value)
     }
-    async EmployeeId() {
+    async EmployeeId(value) {
         await utilite.enterText(EmployeId,value)
     }
-    async OtherId() {
+    async OtherId(value) {
         await utilite.enterText(OthrId,value)
     }
 
