@@ -9,10 +9,10 @@ Feature: Myrecruitement Page
         Then I click on login button
         Given I click on linkrecruitement
         Then I click candidates formlink
-        Then I enter JobTitle name 'QA Lead'
+        Then I enter JobTitle name "QA Lead"
         Then I enter Jobvacancy name "Senior QA Lead"
         Then I enter Status name "Shortlisted"
         Then I enter candidatename "JohnHolder"
         Then I enter keywords field "Text"
         Then I enter Methodofapplication field "Online"
-        Then I click on add
+        Then I click on search

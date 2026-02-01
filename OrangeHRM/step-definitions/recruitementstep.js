@@ -17,18 +17,18 @@ Then('I enter Jobvacancy name {string}', async(value)=>{
 })
 
 Then('I enter Status name {string}', async(value)=>{
-    await recruitements.Status(value)
+    await recruitements.candidateStatus(value)
 })
 Then('I enter candidatename {string}', async(value)=>{
     await recruitements.candidatename(value)
 })
 Then('I enter keywords field {string}', async(value)=>{
-    await recruitements.keywords(value)
+    await recruitements.keywordsfield(value)
 })
 Then('I enter Methodofapplication field {string}', async(value)=>{
-    await recruitements.Methodofapplication(value)
+    await recruitements.methodofapplicationsfield(value)
 })
-Given('I click on add', async()=>{
-    await recruitements.addbutton()
+Given('I click on search', async()=>{
+    await recruitements.search()
 })
 

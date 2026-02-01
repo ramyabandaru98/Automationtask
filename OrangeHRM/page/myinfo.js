@@ -14,13 +14,13 @@ class Myinfo {
     async clickmyinfo() {
 
         await utilite.click(infolink)
-        await utilite.time(30000)
+        await utilite.time(5000)
 
     }
     async clickpersonal() {
 
         await utilite.click(personallink)
-        await utilite.time(30000)
+        await utilite.time(4000)
 
     }
     async EmployeeFullName(value) {

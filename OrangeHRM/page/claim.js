@@ -5,8 +5,8 @@ const utilite = new Utilities()
 const claimlink='//a[@href="/web/index.php/claim/viewClaimModule"]'
 const assignclaimformlink= "//a[text()='Assign Claim']"
 const EmployeeName='//input[@placeholder="Type for hints..."]'
-const Event="//div[text()='Medical Reimbursement']"
-const currency= "//div[text()='Australian Dollar']"
+//const Event="//div[text()='Medical Reimbursement']"
+//const currency= "//div[text()='Australian Dollar']"
 const Remarksfiled="//label[text()='Remarks']/../following-sibling::div/textarea"
 const create="//p[text()=' * Required']/../button[2]"
 

@@ -58,7 +58,9 @@ class Utilities {
         const element = await browser.$(selector)
         await element.waitForDisplayed()
         await element.scrollIntoView({ block: 'center' })
-        await element.waitForClickable()
+        await element.waitForClickable(({
+            timeout: 10000
+        }))
         await element.click()
     }
  
@@ -69,21 +71,21 @@ class Utilities {
         }
     }
  
-    async selectdropdownValue(value) {
+        async selectdropdownValue(selector,value) {
         const browser = await this.getBrowser()
- 
-        const dropdown = await browser.$('//div[contains(@class,"oxd-select-text-input") and @tabindex="0"]')
+        const dropdown = await browser.$(`${selector}`)
         await dropdown.waitForDisplayed()
-        await dropdown.scrollIntoView({ block: 'center' })
+        await dropdown.scrollIntoView(({ block: 'center' }))
         await dropdown.waitForClickable()
         await dropdown.click()
  
         const option = await browser.$(`//div[@role="option" and normalize-space()="${value}"]`)
         await option.waitForDisplayed()
-        await option.scrollIntoView({ block: 'center' })
+        await option.scrollIntoView(({ block: 'center' }))
         await option.waitForClickable()
         await option.click()
     }
+
  
  
  
