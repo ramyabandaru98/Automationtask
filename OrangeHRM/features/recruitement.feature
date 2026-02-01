@@ -7,7 +7,7 @@ Feature: Myrecruitement Page
         Then I enter the username
         Then I enter the password
         Then I click on login button
-        Then I click on linkrecruitement
+        Given I click on linkrecruitement
         Then I click candidates formlink
         Then I enter JobTitle name 'QA Lead'
         Then I enter Jobvacancy name "Senior QA Lead"
@@ -15,4 +15,4 @@ Feature: Myrecruitement Page
         Then I enter candidatename "JohnHolder"
         Then I enter keywords field "Text"
         Then I enter Methodofapplication field "Online"
-        Then I click recruitement link
+        Then I click on add

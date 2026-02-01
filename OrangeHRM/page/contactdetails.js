@@ -17,14 +17,14 @@ class contactdetail{
      async clickmyinfo() {
 
         await utilite.click(infolink)
-        await utilite.time(5000)
+        await utilite.time(4000)
 
     }
 
     async clickoncontactdetaillink(){
 
        await utilite.click(contactdetailsfield)
-       await utilite.time(5000)
+       await utilite.time(3000)
 
     }
     async st1(value){

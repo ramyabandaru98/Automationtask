@@ -12,7 +12,7 @@ const submit = '//button[@type="submit"]'
 
     async openUrl() {
         await utilite.enterUrl(cred.url)
-        await utilite.time(6000)
+        await utilite.time(5000)
     }
  
     async enterusername() {
