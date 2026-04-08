@@ -1,57 +1,26 @@
-const { Given, When, Then } = require('@cucumber/cucumber')
-const { UserFlowPage } = require('../pages/UserFlowPage')
+const { Given, When, Then } = require('@wdio/cucumber-framework')
+const { UserFlowPage } = require('../page/UserFlowPage')
+const cred = require('../credentials/cred')
 
 const userFlow = new UserFlowPage()
 
 Given('User opens application {string}', async function(url) {
-    this.app = url
+    this.appUrl = url
+    await userFlow.openApplication(this.appUrl)
 })
-
+Given('User opens application with orangeHRM ', async function() {
+    
+    await userFlow.openApplication(cred.url)
+})
 When('User logs in with username {string} and password {string}', async function(username, password) {
-    await userFlow.login({ url: this.appUrl, username, password })
+    await userFlow.login(username, password)
 })
 
 When('User changes password from {string} to {string} and confirms {string}', async function(currentPwd, newPwd, confirmPwd) {
     await userFlow.navigateToChangePassword()
-    await userFlow.changePassword({ currentPassword: currentPwd, newPassword: newPwd, confirmPassword: confirmPwd })
+    await userFlow.changePassword(currentPwd, newPwd, confirmPwd)
 })
 
 Then('User logs out', async function() {
     await userFlow.logout()
 })
-// const { Given, When, Then } = require('@wdio/cucumber-framework')
-// const { Loginpage } = require('../page/login')
- 
-// const login = new Loginpage();
- 
- 
-// Given('I open the the application', async () => {
-//     await login.openUrl()
-// })
- 
-// Then('I enter the username', async () => {
-//     await login.enterusername()
-// })
- 
-// Then('I enter the password', async () => {
-//     await login.enterpassword();
-// })
- 
-// Then('I click on login button', async () => {
-//     await login.clickloginbutton();
-// })
- 
-// // Then('I enter the username {string}', async (value) => {
-// //     await login.enterusername(value)
-// // })
- 
-// // Then('I enter the password {string}', async (value) => {
-// //     await login.enterpassword(value);
-// // })
- 
- 
-// // Then('I enter the username {string} and password {string}', async (value1,value2) => {
-// //     await login.enterusername(value1)
-// //     await login.enterpassword(value2);
-// // })
-

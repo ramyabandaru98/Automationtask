@@ -5,6 +5,7 @@ module.exports={
     url:"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
     Newpassword  :"New@1123456789#!!!",
     ConfirmNewpassword   :"New@1123456789#!!!",
-    amazonurl:"https://www.amazon.in"
+    amazonurl:"https://www.amazon.in",
+    testurl:"https://testautomationpractice.blogspot.com/"
 
 }
